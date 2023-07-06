@@ -81,7 +81,7 @@ int main() {
 
 
 void sorting_bubble(kost kamar[], int jml) {
-	kost temp;
+    kost temp;
     int i,j;
     i = jml-1;
     do{
