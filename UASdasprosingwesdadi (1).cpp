@@ -50,7 +50,32 @@ int main() {
     cout << "\nKamar kost yang tersedia: " << endl;
     ketersediaan(kamar, 5);
     
-  
+    //menampilkan Total Harga Sewa jika Kamar kost akan disewa
+    int jumlahKamar;
+    cout << "\nMasukkan jumlah kamar yang ingin dipesan: ";
+    cin >> jumlahKamar;
+
+    double totalHarga = 0;
+    cout << "Masukkan nomor kamar yang ingin dipesan (pisahkan dengan spasi): ";
+    for (int i = 0; i < jumlahKamar; i++) {
+        int nomorKamar;
+        cin >> nomorKamar;
+        
+     if(nomorKamar==55 || nomorKamar==75 || nomorKamar==95){
+        for (int j = 0; j < 5; j++) {
+            if (kamar[j].no == nomorKamar) {
+                cout << "Nomor kamar (" << kamar[j].no << ") Harga sewa: Rp." << kamar[j].harga << endl;
+      
+                totalHarga += kamar[j].harga;
+                break;
+            }
+        }
+     }else
+        cout<<"Maaf kamar nomor ("<<nomorKamar<<") Tidak Tersedia"<<endl;    
+    }
+   
+    cout << "Total harga sewa untuk " << jumlahKamar << " kamar: Rp. " << totalHarga << endl;
+
     return 0;
     system("pause");
 }
