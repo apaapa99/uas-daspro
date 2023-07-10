@@ -10,6 +10,7 @@ struct kost {
 };
 
 void sorting_bubble(kost kamar[], int jml);
+void ketersediaan(kost kamar[], int jml); 
 
 int main() {
     kost kamar[5];
@@ -44,6 +45,10 @@ int main() {
         cout << "Nomor kamar (" << kamar[i].no << ") Harga sewa: Rp." << kamar[i].harga << endl;
     }
 
+    //Menampilkan Seluruh Kamar kost yang Tersedia
+    cout << "\nKamar kost yang tersedia: " << endl;
+    ketersediaan(kamar, 5);
+    
     return 0;
     system("pause");
 }
@@ -65,3 +70,11 @@ void sorting_bubble(kost kamar[], int jml) {
 	 }while(i>0);
 }
 
+
+void ketersediaan(kost kamar[], int jml) {
+    for (int i = 0; i < jml; i++) {
+        if (kamar[i].status == 1) {
+            cout << "Nomor kamar (" << kamar[i].no << ") tersedia" << endl;
+        }
+    }
+}
