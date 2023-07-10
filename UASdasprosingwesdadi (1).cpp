@@ -4,10 +4,12 @@ using namespace std;
 struct kost {
     int no;
     string nama;
-    string fasilitas;
-    double harga;
+    string fasilitas;    
+	double harga;
     bool status;
 };
+
+void sorting_bubble(kost kamar[], int jml);
 
 int main() {
     kost kamar[5];
@@ -29,4 +31,37 @@ int main() {
         cout << "Status: " << (kamar[i].status ? "Tersedia" : "Sedang Disewa") << endl;
         cout << "==================================" << endl;
     }
+
+    //menampilkan Urutan Harga sewa Kamar koat yang terendah-tertinggi
+    cout << "Harga sewa per bulan (Sebelum Diurutkan): " << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Nomor kamar (" << kamar[i].no << ") Harga sewa: Rp." << kamar[i].harga << endl;
+    }
+    
+    cout << "\nHarga sewa per bulan (Setelah Diurutkan): " << endl;
+    sorting_bubble(kamar, 5);
+    for (int i = 0; i < 5; i++) {
+        cout << "Nomor kamar (" << kamar[i].no << ") Harga sewa: Rp." << kamar[i].harga << endl;
+    }
+
+    return 0;
+    system("pause");
 }
+
+
+void sorting_bubble(kost kamar[], int jml) {
+	kost temp;
+    int i,j;
+    i = jml-1;
+    do{
+       for(j=0;j<i;j++){
+          if(kamar[j+1].harga < kamar[j].harga){
+     			temp = kamar[j + 1];
+                kamar[j + 1] = kamar[j];
+                kamar[j] = temp;
+ 			}
+ 		}
+ 		i--;
+	 }while(i>0);
+}
+
